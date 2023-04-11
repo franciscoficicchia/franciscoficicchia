@@ -25,16 +25,14 @@ body {background-color: white ;}
   list-style: none;
   padding-inline-start: 100px;
   justify-content: center;
-    display: flex; 
-  flex-wrap: wrap;
-min-width: 250px;}
+display: flex; }
 
 
  .formula {
 
   align-items: center;
   margin: 0 auto;
-  width: 500px; 
+  width: 500px;
   background-color: white;
   padding: 100px;
   border-radius: 3px;
@@ -47,8 +45,7 @@ font-family: Arial, Helvetica, sans-serif;
 background-color: black;
 color: white;
 border-radius: 5px;
-padding: 10px;
-}
+padding: 10px;}
 
 header h2 {text-align: left; 
   padding: inline start 600px;
@@ -59,8 +56,6 @@ div p {
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
   padding-inline-start: 500px;
-  flex-wrap: wrap;
-  min-width: 200px
 
 }
 .chicago {
@@ -68,15 +63,12 @@ div p {
   width: 300px;
 float: inline-start;
 background-color: white;
-
-
-
   
  
 }
 .mocha {
   text-align: center;
-width: 300px;
+  width: 300px;
 
 
 
