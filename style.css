@@ -2,7 +2,7 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-background-color: beige;
+background-color: black;
 text-decoration-color: #ffc107;
 }
 
@@ -76,7 +76,7 @@ footer a {
 /* Dispositivos de 768px o más pequeños */
 @media (max-width: 767.98px) {
   .navbar-collapse {
-    background-color: #fff;
+    background-color: black;
     border-radius: 0.5rem;
     margin-top: 1rem;
     padding: 1rem;
@@ -105,9 +105,8 @@ footer a {
 
 /* Dispositivos de 1200px o más pequeños */
 @media (max-width: 1199.98px) {
-  .carousel-item img {
-    height: 350px;
-  }
+
+}
 
   #contenido img.chicago,
   #contenido img.mocha {
@@ -118,14 +117,15 @@ footer a {
     max-width: 100%;
     width: auto;
   }
-}
+  
 nav.navbar {
-  background-color: #212529;
+  background-color: black;
   color: white;
 }
 
 nav.navbar a.navbar-brand,
 nav.navbar a.nav-link {
+  background-color: black;
   color: white;
   text-decoration: none;
   width: 200px;
@@ -166,7 +166,7 @@ footer ul {
   display: flex;
   justify-content: space-around;
   padding: 20px 0;
-  background-color: #212529;
+  background-color: black;
   color: white;
   font-size: 1.2rem;
 }
@@ -246,7 +246,7 @@ width: 300px;
   color: #999;
 }
 
-/* Estilos para los inputs en foco */
+/* Estilos para los inputs */
 .formula input:focus {
   background-color: #ffc107;
   box-shadow: 0px 0px 10px rgba(255,193,7,0.5);
