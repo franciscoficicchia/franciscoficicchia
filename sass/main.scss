@@ -1,74 +1,194 @@
-html 
-body {background-color: white ;}
- h1 {color:tomato ;
-    text-align: left;top: auto;
-    border-radius: 3px;
-    padding-inline-start: 600px;
- }
- .logo { 
-   width: 200px;
-   padding-inline-start: 50px;
-   margin-top: auto;
-   text-align: center;
- }
- nav ul li {
-  
-  font-family: Arial;
-  display: inline;
-  border-bottom: 3px;
-  font-size:20px;
-  text-decoration: none;  
-  padding: 10px ;
-  background-color: white;
-  color: red ;
-  padding-bottom: none;
-  list-style: none;
-  padding-inline-start: 100px;
-  justify-content: center;
-display: flex; }
-
-
- .formula {
-
-  align-items: center;
-  margin: 0 auto;
-  width: 500px;
-  background-color: white;
-  padding: 100px;
-  border-radius: 3px;
-
- }
- div h2 {text-align: center;
-}
- div p {text-align: center;
-font-family: Arial, Helvetica, sans-serif;
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
 background-color: black;
-color: white;
-border-radius: 5px;
-padding: 10px;}
-
-header h2 {text-align: left; 
-  padding: inline start 600px;
+text-decoration-color: #ffc107;
 }
-header p {text-align: left;}
 
-div p {
-  text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
-  padding-inline-start: 500px;
+/* Header */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+.navbar-nav {
+  margin-right: auto;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+
+
+/* Contenido */
+#contenido {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+#contenido p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+#contenido img {
+  margin: 100px;
+  max-width: 100%;
+}
+
+/* Footer */
+footer {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  
+  align-items: center;
+  padding: 1rem;
+}
+
+footer ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer li {
+  margin-right: 1rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Media queries */
+
+/* Dispositivos de 768px o más pequeños */
+@media (max-width: 767.98px) {
+  .navbar-collapse {
+    background-color: black;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+  .nav-link {
+    margin: 0.5rem 0;
+  }
+
+  .carousel-item img {
+    height: 250px;
+  }
+}
+
+/* Dispositivos de 992px o más pequeños */
+@media (max-width: 991.98px) {
+  #contenido img.travis {
+    width: 100%;
+  }
+}
+
+/* Dispositivos de 1200px o más pequeños */
+@media (max-width: 1199.98px) {
+
+}
+
+  #contenido img.chicago,
+  #contenido img.mocha {
+    width: 100%;
+  }
+
+  #contenido img.off {
+    max-width: 100%;
+    width: auto;
+  }
+  
+nav.navbar {
+  background-color: black;
+  color: white;
+}
+
+nav.navbar a.navbar-brand,
+nav.navbar a.nav-link {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  width: 200px;
+}
+nav.navbar a.nav-link:hover {
+  color: #ffc107;
+}
+
+#carouselExample img {
+  height: 400px;
+  margin: auto;
+}
+
+#carouselExample p {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 20px;
+}
+div.container {
+  margin-top: 20px;
+}
+
+div.container p {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+div.container img {
+  height: 300px;
+  margin: 20px;
+}
+div.container hr {
+  margin: 40px 0;
+}
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+}
+
+footer ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  color: #ffc107;
 }
 .chicago {
   text-align: center;
   width: 300px;
 float: inline-start;
 background-color: white;
-  
- 
+
 }
 .mocha {
   text-align: center;
-  width: 300px;
+width: 300px;
 
 
 
@@ -80,13 +200,103 @@ background-color: white;
   text-align: center ;
   width : 300px ;
 }
-  
-footer {
-  background-color:white;
-  color: red;
-  font-style: italic;
+.grises {text-align: center ;
+  width : 300px ;
+  text-decoration: solid;
 }
-#carouselExample {
-  background-color: white;
-  color: white;
+.jordan-retro {text-align: center ;
+  width : 300px ;
+
 }
+/* Estilos para el formulario */
+.formula {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+  animation: pulse 1s infinite;
+}
+
+/* Estilos para los inputs */
+.formula input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Estilos para el input de Enviar */
+.formula input[type="submit"] {
+  background-color: #ffc107;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Estilos para los placeholders */
+.formula input::placeholder {
+  color: #999;
+}
+
+/* Estilos para los inputs */
+.formula input:focus {
+  background-color: #ffc107;
+  box-shadow: 0px 0px 10px rgba(255,193,7,0.5);
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+p {
+  margin-top: 20px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+.shoes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.shoe-item {
+  width: 45%;
+  margin-bottom: 20px;
+}
+
+.shoe-item p {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.shoe-item img {
+  max-width: 100%;
+}
+
