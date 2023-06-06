@@ -30,5 +30,88 @@ function algoritmoCondicional(numero) {
 
   algoritmoCondicional(10);
   algoritmoCiclo();
-  simuladorInteractivo();
-  
+  simuladorInteractivo(); 
+
+  // Función para obtener elementos por su selector
+function getElement(selector) {
+  return document.querySelector(selector);
+}
+
+// Función para crear elementos con atributos y contenido
+function createElement(tagName, attributes, content) {
+  const element = document.createElement(tagName);
+  for (let key in attributes) {
+    element.setAttribute(key, attributes[key]);
+  }
+  if (content) {
+    element.textContent = content;
+  }
+  return element;
+}
+
+// Objeto con la configuración del navbar
+const navbarConfig = {
+  brand: {
+    text: 'sneakers arg',
+    href: '#'
+  },
+  items: [
+    { text: 'inicio', href: 'index.html' },
+    { text: 'categorias', href: './snkarg/categorias.html' },
+    { text: 'contacto', href: './snkarg/contacto.html' },
+    { text: 'sobre nosotros', href: './snkarg/sobrenosotros.html' }
+  ],
+  search: {
+    placeholder: 'buscar',
+    button: 'buscar'
+  }
+};
+
+// Crear el navbar
+function createNavbar(config) {
+  const navbar = createElement('nav', { class: 'navbar navbar-expand-lg' });
+  const container = createElement('div', { class: 'container-fluid' });
+
+  // Brand
+  const brand = createElement('a', { class: 'navbar-brand', href: config.brand.href }, config.brand.text);
+  container.appendChild(brand);
+
+  // Toggle button
+  const toggleButton = createElement('button', {
+    class: 'navbar-toggler',
+    type: 'button',
+    'data-bs-toggle': 'collapse',
+    'data-bs-target': '#navbarSupportedContent',
+    'aria-controls': 'navbarSupportedContent',
+    'aria-expanded': 'false',
+    'aria-label': 'toggle navigation'
+  });
+  const toggleIcon = createElement('span', { class: 'navbar-toggler-icon' });
+  toggleButton.appendChild(toggleIcon);
+  container.appendChild(toggleButton);
+
+  // Navbar items
+  const navbarItems = createElement('div', { class: 'collapse navbar-collapse', id: 'navbarSupportedContent' });
+  const navbarList = createElement('ul', { class: 'navbar-nav me-auto mb-2 mb-lg-0' });
+
+  config.items.forEach(item => {
+    const listItem = createElement('li', { class: 'nav-item' });
+    const link = createElement('a', { class: 'nav-link', href: item.href }, item.text);
+    listItem.appendChild(link);
+    navbarList.appendChild(listItem);
+  });
+
+  navbarItems.appendChild(navbarList);
+  container.appendChild(navbarItems);
+
+  // Search form
+  const searchForm = createElement('form', { class: 'd-flex', role: 'search' });
+  const searchInput = createElement('input', { class: 'form-control me-2', type: 'search', placeholder: config.search.placeholder, 'aria-label': 'Search' });
+  const searchButton = createElement('button', { class: 'btn btn-outline-warning', type: 'submit' }, config.search.button);
+  searchForm.appendChild(searchInput);
+  searchForm.appendChild(searchButton);
+  container.appendChild(searchForm);
+
+  navbar.appendChild(container);
+  return navbar;
+}
