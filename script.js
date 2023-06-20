@@ -115,3 +115,19 @@ function createNavbar(config) {
   navbar.appendChild(container);
   return navbar;
 }
+// Obtener el elemento de búsqueda y el botón de búsqueda del formulario
+const searchInput = document.querySelector('input[type="search"]');
+const searchButton = document.querySelector('button[type="submit"]');
+
+// Obtener el valor de búsqueda del localStorage si existe
+const savedSearch = localStorage.getItem('searchValue');
+if (savedSearch) {
+  searchInput.value = savedSearch;
+}
+
+// Escuchar el evento de envío del formulario y guardar el valor de búsqueda en el localStorage
+searchButton.addEventListener('click', function(event) {
+  event.preventDefault(); // Evitar el envío del formulario
+  const searchValue = searchInput.value;
+  localStorage.setItem('searchValue', searchValue);
+});
