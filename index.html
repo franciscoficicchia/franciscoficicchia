@@ -48,6 +48,15 @@
             </div>
           </nav>
         </nav>
+        <div class="cart-container">
+          <h2>Carrito de compras <i class="fas fa-shopping-cart cart-icon"></i></h2>
+
+       <ul id="cart-items"></ul>
+          <p>Total: <span id="cart-total">$400</span></p>
+          <button id="clear-cart">Vaciar carrito</button>
+        </div>
+        
+                
 </header>
 <div id="carouselExampleDark" class="carousel carousel-dark slide">
   <div class="carousel-indicators">
@@ -94,33 +103,45 @@
   </button>
 </div>
 
-      <div class="shoes-container">
-        <div class="shoe-item">
-          <p>Air Jordan 1 Retro High OG Chicago Lost Found</p>
-          <img class="chicago" src="./imagenes/chicago.jpeg" alt="jordan 1 chicago">
-        </div>
-        <div class="shoe-item">
-          <p>air jordan retro 1 retro high og</p>
-          <img class="mocha" src="./imagenes/mocha.jpeg" alt="mocha">
-        </div>
-        <div class="shoe-item">
-          <p>travis scott x air jordan 1 low og sp black phanto</p>
-          <img class="travis" src="./imagenes/travis.jpeg" alt="travis scott">
-        </div>
-        <div class="shoe-item">
-          <p>off white x air jordan 1 retro high og unc</p>
-          <img class="off" src="./imagenes/1.jpg" alt="off white">
-        </div>
-        <div class="shoe-item">
-          <p>dunk low 'grey fog'</p>
-          <img class="grises" src="./imagenes/grises.jpeg" alt="grises">
-        </div>
-        <div class="shoe-item">
-          <p> air jordan 1 retro high og 'hyper royal'</p>
-          <img class="jordan-retro" src="./imagenes/jordanretro.jpeg" alt="jordan retro">
-        </div>
-      </div>
-      
+<div class="shoes-container">
+  <div class="shoe-item">
+    <p>Air Jordan 1 Retro High OG Chicago Lost Found</p>
+    <img class="chicago" src="./imagenes/chicago.jpeg" alt="jordan 1 chicago">
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
+  <div class="shoe-item">
+    <p>Air Jordan Retro 1 Retro High OG</p>
+    <img class="mocha" src="./imagenes/mocha.jpeg" alt="mocha">
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
+  <div class="shoe-item">
+    <p>Travis Scott x Air Jordan 1 Low OG SP Black Phanto</p>
+    <img class="travis" src="./imagenes/travis.jpeg" alt="travis scott">
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
+  <div class="shoe-item">
+    <p>Off-White x Air Jordan 1 Retro High OG UNC</p>
+    <img class="off" src="./imagenes/1.jpg" alt="off white">
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
+  <div class="shoe-item">
+    <p>Dunk Low 'Grey Fog'</p>
+    <img class="grises" src="./imagenes/grises.jpeg" alt="grises">
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
+  <div class="shoe-item">
+    <p>Air Jordan 1 Retro High OG 'Hyper Royal'</p>
+    <img class="jordan-retro" src="./imagenes/jordanretro.jpeg" alt="jordan retro">
+    <button class="add-to-cart">Agregar al carrito</button>
+  </div>
+</div>
+
+<div class="cart-container">
+  <h2>Carrito</h2>
+  <ul id="cart-items"></ul>
+  <p id="total">Total: $0</p>
+  <button id="clear-cart">Vaciar carrito</button>
+</div>
 <hr>
  <footer> 
 <ul> <li><a href="https://instagram.com">instagram</a></li>

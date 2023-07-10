@@ -131,3 +131,4 @@ searchButton.addEventListener('click', function(event) {
   const searchValue = searchInput.value;
   localStorage.setItem('searchValue', searchValue);
 });
+

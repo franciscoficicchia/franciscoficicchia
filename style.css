@@ -195,7 +195,7 @@ width: 300px;
 }
 .travis {
   text-align: center;
-  width: 300px; }
+  width: 100px; }
 .off {
   text-align: center ;
   width : 300px ;
@@ -297,5 +297,124 @@ a {
 }
 
 .shoe-item img {
-  max-width: 100%;
-}
+  max } 
+
+  .cart-container {
+    background-color: #fff;
+    padding: 20px;
+    border : 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  .shoes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .shoe-item {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .shoe-item p {
+    margin-bottom: 10px;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    font-size: 28px;
+  }
+  
+  .shoes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .shoe-item {
+    width: 250px;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .shoe-item p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .shoe-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .shoe-item button {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .shoe-item button:hover {
+    background-color: #45a049;
+  }
+  
+  .cart-container {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  #cart-items {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #cart-items li {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  #total {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  
+  #clear-cart {
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #clear-cart:hover {
+    background-color: #e53935;
+  }
