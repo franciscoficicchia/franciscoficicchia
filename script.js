@@ -131,4 +131,177 @@ searchButton.addEventListener('click', function(event) {
   const searchValue = searchInput.value;
   localStorage.setItem('searchValue', searchValue);
 });
+async function obtenerDatosUsuario() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      let nombre = prompt("Ingrese su nombre:");
+      let edad = prompt("Ingrese su edad:");
+      resolve({ nombre, edad });
+    }, 1000); // Simulamos un retraso de 1 segundo
+  });
+}
 
+// Función asincrónica que utiliza await
+async function simuladorInteractivo() {
+  const { nombre, edad } = await obtenerDatosUsuario();
+
+  if (edad >= 18) {
+    alert(`Hola ${nombre}, eres mayor de edad.`);
+  } else {
+    alert(`Hola ${nombre}, eres menor de edad.`);
+  }
+}
+function addToCart(itemName, price) {
+  const item = {
+    name: itemName,
+    price: price,
+  };
+  cartItems.push(item);
+  displayCartItems();
+  saveCartToLocalStorage();
+}
+
+// Function to display items in the cart
+function displayCartItems() {
+  const cartList = document.getElementById("cart-items");
+  cartList.innerHTML = "";
+  let total = 0;
+
+  cartItems.forEach((item) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${item.name} - $${item.price}`;
+    cartList.appendChild(listItem);
+
+    total += item.price;
+  });
+
+  const cartTotal = document.getElementById("cart-total");
+  cartTotal.textContent = `$${total}`;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Fetch all the required elements
+  const addToCartButtons = document.querySelectorAll(".add-to-cart");
+  const cartItemsList = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+  const clearCartButton = document.getElementById("clear-cart");
+
+  let cart = []; // Array to store the cart items
+
+  // Function to update the cart and display the items
+  function updateCart() {
+    cartItemsList.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item.name + " - $" + item.price;
+      cartItemsList.appendChild(li);
+      total += item.price;
+    });
+
+    cartTotal.textContent = "$" + total;
+  }
+
+  // Function to handle "Add to Cart" button click
+  function addToCartClick(event) {
+    const shoeItem = event.target.parentElement;
+    const itemName = shoeItem.querySelector("p").textContent;
+    const itemPrice = parseFloat(shoeItem.querySelector("button").textContent.replace("Agregar al carrito", "").trim());
+
+    cart.push({ name: itemName, price: itemPrice });
+    updateCart();
+  }
+
+  // Attach event listeners to "Add to Cart" buttons
+  addToCartButtons.forEach(button => {
+    button.addEventListener("click", addToCartClick);
+  });
+
+  // Function to handle "Vaciar carrito" button click
+  function clearCartClick() {
+    cart = [];
+    updateCart();
+  }
+
+  // Attach event listener to "Vaciar carrito" button
+  clearCartButton.addEventListener("click", clearCartClick);
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const cartItems = [];
+  const cartItemsElement = document.getElementById("cart-items");
+  const cartTotalElement = document.getElementById("total");
+  const addToCartButtons = document.querySelectorAll(".add-to-cart");
+  const clearCartButton = document.getElementById("clear-cart");
+
+  // Product data with image, name, and price
+  const products = [
+    {
+      image: "./imagenes/chicago.jpeg",
+      name: "Air Jordan 1 Retro High OG Chicago Lost Found",
+      price: 150,
+    },
+    {
+      image: "./imagenes/mocha.jpeg",
+      name: "Air Jordan Retro 1 Retro High OG",
+      price: 120,
+    },
+    {
+      image: "./imagenes/travis.jpeg",
+      name: "Travis Scott x Air Jordan 1 Low OG SP Black Phanto",
+      price: 180,
+    },
+    {
+      image: "./imagenes/1.jpg",
+      name: "Off-White x Air Jordan 1 Retro High OG UNC",
+      price: 200,
+    },
+    {
+      image: "./imagenes/grises.jpeg",
+      name: "Dunk Low 'Grey Fog'",
+      price: 90,
+    },
+    {
+      image: "./imagenes/jordanretro.jpeg",
+      name: "Air Jordan 1 Retro High OG 'Hyper Royal'",
+      price: 160,
+    },
+  ];
+
+  // Function to update the cart total
+  function updateCartTotal() {
+    const cartTotal = cartItems.reduce((total, item) => total + item.price, 0);
+    cartTotalElement.textContent = `Total: $${cartTotal}`;
+  }
+
+  // Function to add item to cart
+  function addToCart(name, price) {
+    cartItems.push({ name, price });
+    updateCartTotal();
+    displayCartItems();
+  }
+
+  // Function to display cart items
+  function displayCartItems() {
+    cartItemsElement.innerHTML = "";
+    cartItems.forEach((item) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${item.name} - $${item.price}`;
+      cartItemsElement.appendChild(listItem);
+    });
+  }
+
+  // Event listener for Add to Cart buttons
+  addToCartButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      addToCart(products[index].name, products[index].price);
+    });
+  });
+
+  // Event listener for Clear Cart button
+  clearCartButton.addEventListener("click", () => {
+    cartItems.length = 0;
+    updateCartTotal();
+    displayCartItems();
+  });
+});
