@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const clearCartButton = document.getElementById("clear-cart");
 
   // Product data with image, name, and price
-  const products = [
+  const sneakersData = [
     {
       image: "./imagenes/chicago.jpeg",
       name: "Air Jordan 1 Retro High OG Chicago Lost Found",
@@ -266,42 +266,81 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "Air Jordan 1 Retro High OG 'Hyper Royal'",
       price: 160,
     },
-  ];
+  ]
+  // Función para mostrar las zapatillas en la página
+function displaySneakers() {
+  const shoesContainer = document.querySelector('.shoes-container');
+  shoesContainer.innerHTML = '';
 
-  // Function to update the cart total
-  function updateCartTotal() {
-    const cartTotal = cartItems.reduce((total, item) => total + item.price, 0);
-    cartTotalElement.textContent = `Total: $${cartTotal}`;
-  }
+  sneakersData.forEach((sneaker) => {
+    const shoeItem = document.createElement('div');
+    shoeItem.classList.add('shoe-item');
 
-  // Function to add item to cart
-  function addToCart(name, price) {
-    cartItems.push({ name, price });
-    updateCartTotal();
-    displayCartItems();
-  }
+    const image = document.createElement('img');
+    image.src = sneaker.image;
+    image.alt = sneaker.name;
+    shoeItem.appendChild(image);
 
-  // Function to display cart items
-  function displayCartItems() {
-    cartItemsElement.innerHTML = "";
-    cartItems.forEach((item) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = `${item.name} - $${item.price}`;
-      cartItemsElement.appendChild(listItem);
-    });
-  }
+    const name = document.createElement('p');
+    name.textContent = sneaker.name;
+    shoeItem.appendChild(name);
 
-  // Event listener for Add to Cart buttons
-  addToCartButtons.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      addToCart(products[index].name, products[index].price);
-    });
+    const price = document.createElement('p');
+    price.textContent = `$${sneaker.price}`;
+    shoeItem.appendChild(price);
+
+    const addToCartButton = document.createElement('button');
+    addToCartButton.textContent = 'Agregar al carrito';
+    addToCartButton.classList.add('add-to-cart');
+    addToCartButton.addEventListener('click', () => addToCart(sneaker));
+    shoeItem.appendChild(addToCartButton);
+
+    shoesContainer.appendChild(shoeItem);
   });
+}
 
-  // Event listener for Clear Cart button
-  clearCartButton.addEventListener("click", () => {
-    cartItems.length = 0;
-    updateCartTotal();
-    displayCartItems();
-  });
-});
+// Función para agregar una zapatilla al carrito
+function addToCart(sneaker) {
+  cartItems.push(sneaker);
+  updateCartTotal();
+}
+
+// Función para actualizar el total del carrito en la página
+function updateCartTotal() {
+  const totalElement = document.getElementById('cart-total');
+  const total = cartItems.reduce((acc, sneaker) => acc + sneaker.price, 0);
+  totalElement.textContent = `$${total}`;
+}
+// Función para vaciar el carrito
+function clearCart() {
+  cartItems = [];
+  updateCartTotal();
+  displayCartItems();
+}
+
+// Función para mostrar los elementos del carrito en la página
+function displayCartItems() {
+  const cartItemsContainer = document.getElementById('cart-items');
+  cartItemsContainer.innerHTML = '';
+
+  cartItems.forEach((sneaker) => {
+    const cartItem = document.createElement('li');
+    cartItem.textContent = sneaker.name;
+    cartItemsContainer.appendChild(cartItem);
+  }]
+  const apiUrl = "https://fakestoreapi.com/products/category/shoes";
+
+// Función para obtener datos de la API de zapatillas
+async function fetchSneakersData() {
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error("Error al obtener datos de la API");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
+    return [];
+  }
+}
